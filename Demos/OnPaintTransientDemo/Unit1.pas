@@ -124,7 +124,7 @@ begin
 
         if (TransientType = ttAfter) then
         begin
-          Editor.Canvas.Font.Color := FBracketFG;
+          Editor.Canvas.Font.Color  := FBracketFG;
           Editor.Canvas.Brush.Color := FBracketBG;
         end else begin
           Editor.Canvas.Font.Color := Attri.Foreground;
@@ -143,6 +143,8 @@ begin
           Pix := CharToPixels(P);
           if Pix.X > Editor.Gutter.Width then
           begin
+            Editor.Canvas.Font.Color  := FBracketFG;
+            Editor.Canvas.Brush.Color := FBracketBG;          
             if S = OpenChars[i] then
               Editor.Canvas.TextOut(Pix.X, Pix.Y, CloseChars[i])
             else Editor.Canvas.TextOut(Pix.X, Pix.Y, OpenChars[i]);
